@@ -1,99 +1,241 @@
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  background-color: #fff;       
-  color: #000;                
-  margin: 0;                  
-  padding: 0;
-  display: flex;                
-  justify-content: center;
+/* ==============================
+   PAGE
+   ============================== */
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 25px;
+  background: #eeeeee;
+  color: #111;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+
+/* ==============================
+   RESUME PAPER
+   ============================== */
+
 .resume-container {
-  width: 100%;    
-  max-width: 8.5in;
-  min-height: 100vh; 
-  padding: 20px;    
-  box-shadow: 0 0 8px rgba(0,0,0,0.15); 
-  background-color: white;
-  box-sizing:border-box;
+  width: 8.5in;
+  min-height: 11in;
+
+  margin: 0 auto;
+  padding: 0.40in 0.55in;
+
+  background: white;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   HEADER
+   ============================== */
+
+header {
+  text-align: center;
 }
 
 h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom:10px;
-}
-.information{
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 20px;
-  line-height: 1.4;
-}
-.information a:link {
-color: blue;
-text-decoration: none;
-}
-.information a:hover{
-  color: red;
-  text-decoration: underline;
+  margin: 0 0 4px 0;
 
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
+
+.contact-info {
+  font-size: 11px;
+}
+
+.contact-info a {
+  color: #111;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==============================
+   SECTION HEADINGS
+   ============================== */
 
 h2 {
-  font-size: 20px; font-weight: bold;
-  border-bottom: 2px solid black;
-  padding-bottom: 3px;
-  margin-top: 29px;margin-bottom: 10px;
-}
-  
+  margin: 11px 0 5px 0;
+  padding-bottom: 2px;
 
-.education,
-.eperience,
-.project,
-.skill {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: 700;
+
+  border-bottom: 1px solid #333;
 }
 
-.edu-block,
-.proj-block,
-.exp-block {
-  margin-bottom: 5px;
+
+/* ==============================
+   GENERAL TEXT
+   ============================== */
+
+p {
+  margin: 2px 0;
 }
+
+section > p {
+  text-align: left;
+}
+
+
+/* ==============================
+   ROWS
+   ============================== */
 
 .row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  flex-wrap: wrap; /*allow to wrap when the screen is small */
+
+  gap: 15px;
 }
 
-.left,
-.right {
-  width: 100%; /*defaut full width on mobile*/
-  margin-bottom: 5px;
-}
-@media (min-width: 600px) {
-  .left {
-    width: 65%;
-  }
-  .right{
-    width: 35%;
-    text-align: right;
-  }
+.row strong {
+  flex: 1;
 }
 
-b {
-  font-size: 17px;
+.row span {
+  white-space: nowrap;
+  text-align: right;
 }
 
-i {
-  color: #333;
+
+/* ==============================
+   ENTRIES
+   ============================== */
+
+.entry {
+  margin-bottom: 6px;
 }
+
+.job-title {
+  margin-top: 2px;
+}
+
+.honors {
+  margin-top: 3px;
+}
+
+.technology {
+  margin-top: 2px;
+  font-style: italic;
+  font-size: 11px;
+}
+
+
+/* ==============================
+   BULLETS
+   ============================== */
 
 ul {
-   margin-top: 5px;
-   margin-bottom: 10px;
-   padding-left: 20px;
-   font-size: 15px;
+  margin: 3px 0 5px 0;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 2px;
+  padding-left: 1px;
+}
+
+
+/* ==============================
+   PROJECTS
+   ============================== */
+
+.project {
+  margin-bottom: 5px;
+}
+
+
+/* ==============================
+   SKILLS
+   ============================== */
+
+.skills p {
+  margin: 2px 0;
+}
+
+.separator {
+  margin: 0 6px;
+}
+
+
+/* ==============================
+   PRINT SETTINGS
+   ============================== */
+
+@page {
+  size: Letter;
+  margin: 0;
+}
+
+@media print {
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  .resume-container {
+    width: 8.5in;
+    min-height: 11in;
+
+    margin: 0;
+    padding: 0.40in 0.55in;
+
+    box-shadow: none;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  .entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media screen and (max-width: 800px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .resume-container {
+    width: 100%;
+    min-height: auto;
+    padding: 25px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .row span {
+    text-align: left;
+  }
 }
